@@ -1,0 +1,21 @@
+# == Schema Information
+#
+# Table name: sources
+#
+#  id         :bigint           not null, primary key
+#  name       :string
+#  user_id    :bigint           not null
+#  color      :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+one:
+  name: MyString
+  user: one
+  color: MyString
+
+two:
+  name: MyString
+  user: two
+  color: MyString
