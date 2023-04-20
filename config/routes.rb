@@ -1,5 +1,4 @@
 # == Route Map
-#
 
 Rails.application.routes.draw do
   devise_for :users,
@@ -13,6 +12,7 @@ Rails.application.routes.draw do
       resources :categories
       resources :sources
       resources :transactions
+      resources :user_categories
     end
     # namespace :v2 do
     #   resource :countries

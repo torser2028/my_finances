@@ -19,4 +19,5 @@ class User < ApplicationRecord
 
   has_many :sources
   has_many :transactions
+  has_many :user_categories
 end
