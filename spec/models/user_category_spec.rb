@@ -11,5 +11,8 @@
 require 'rails_helper'
 
 RSpec.describe UserCategory, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "has a valid factory" do
+    user_category = FactoryBot.create(:user_category, :with_user)
+    expect(user_category).to be_valid
+  end
 end
