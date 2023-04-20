@@ -2,6 +2,7 @@
 require 'spec_helper'
 require_relative 'support/factory_bot'
 require_relative 'support/chrome'
+require 'factory_bot_rails'
 
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
