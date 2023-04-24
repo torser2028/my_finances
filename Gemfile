@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -44,6 +46,8 @@ gem 'devise-jwt'
 gem 'bundler-audit', require: false
 gem 'ruby_audit', require: false
 
+gem 'execjs'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mingw x64_mingw]
@@ -55,7 +59,11 @@ end
 
 group :development do
   gem 'annotate'
+  gem 'brakeman'
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
-  gem 'rubocop'
+  gem 'pre-commit', require: false
+  gem 'rubocop', require: false
+  gem 'rubocop-rails', '~> 2.19', '>= 2.19.1'
+  gem 'rubocop-rspec', '~> 2.20'
 end
