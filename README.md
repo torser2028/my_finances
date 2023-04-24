@@ -27,3 +27,15 @@ Things you may want to cover:
 
 Implemented following this documentation: https://dev.to/kanani_nirav/github-pre-commit-hook-setup-in-ruby-on-rails-12m3
 https://github.com/jish/pre-commit
+
+Run this command to make the scripts executable:
+
+```bash
+chmod +x scripts/*.bash
+```
+
+Then run this command to install the hooks:
+
+```bash
+./scripts/install-hooks.bash
+```
