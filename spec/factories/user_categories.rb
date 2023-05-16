@@ -10,7 +10,10 @@
 #
 FactoryBot.define do
   factory :user_category do
-    name { "MyString" }
-    user { nil }
+    name { "Example User Category" }
+    
+    trait :with_user do
+      association :user, factory: :user
+    end
   end
 end

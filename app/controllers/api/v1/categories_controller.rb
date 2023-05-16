@@ -5,8 +5,14 @@ class Api::V1::CategoriesController < ApplicationController
   def index
     categories = Category.all
     user_categories = UserCategory.all
-    @categories = categories + user_categories
-    render json: @categories
+    @categories = (categories + user_categories).map do |category|
+      if category.is_a?(UserCategory)
+        UserCategorySerializer.new(category, { include_system_category: false })
+      else
+        CategorySerializer.new(category)
+      end
+    end
+    render json: { categories: @categories }
   end
 
   # GET /categories/1

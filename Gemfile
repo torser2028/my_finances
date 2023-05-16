@@ -46,6 +46,9 @@ gem 'devise-jwt'
 gem 'bundler-audit', require: false
 gem 'ruby_audit', require: false
 
+# Serializer
+gem 'active_model_serializers'
+
 gem 'execjs'
 
 group :development, :test do

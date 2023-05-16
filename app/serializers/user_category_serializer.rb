@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: user_categories
@@ -8,11 +10,10 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
-require 'rails_helper'
+class UserCategorySerializer < ActiveModel::Serializer
+  attributes :name, :is_user_category
 
-RSpec.describe UserCategory, type: :model do
-  it "has a valid factory" do
-    user_category = FactoryBot.create(:user_category, :with_user)
-    expect(user_category).to be_valid
+  def is_user_category
+    true
   end
 end
