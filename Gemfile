@@ -60,6 +60,7 @@ end
 group :development do
   gem 'annotate'
   gem 'brakeman'
+  gem 'byebug'
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
   gem 'pre-commit', require: false
