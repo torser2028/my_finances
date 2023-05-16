@@ -12,7 +12,7 @@ class TransactionsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create transaction" do
     assert_difference("Transaction.count") do
-      post transactions_url, params: { transaction: { category_id: @transaction.category_id, date: @transaction.date, name: @transaction.name, reminder: @transaction.reminder, source_id: @transaction.source_id, type: @transaction.type, user_id: @transaction.user_id, value: @transaction.value } }, as: :json
+      post transactions_url, params: { transaction: { category_id: @transaction.category_id, date: @transaction.date, name: @transaction.name, reminder: @transaction.reminder, source_id: @transaction.source_id, transaction_type: @transaction.transaction_type, user_id: @transaction.user_id, value: @transaction.value } }, as: :json
     end
 
     assert_response :created
@@ -24,7 +24,7 @@ class TransactionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update transaction" do
-    patch transaction_url(@transaction), params: { transaction: { category_id: @transaction.category_id, date: @transaction.date, name: @transaction.name, reminder: @transaction.reminder, source_id: @transaction.source_id, type: @transaction.type, user_id: @transaction.user_id, value: @transaction.value } }, as: :json
+    patch transaction_url(@transaction), params: { transaction: { category_id: @transaction.category_id, date: @transaction.date, name: @transaction.name, reminder: @transaction.reminder, source_id: @transaction.source_id, transaction_type: @transaction.transaction_type, user_id: @transaction.user_id, value: @transaction.value } }, as: :json
     assert_response :success
   end
 
