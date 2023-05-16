@@ -1,5 +1,5 @@
 class Api::V1::TransactionsController < ApplicationController
-  before_action :set_transaction, only: %i[ show update destroy ]
+  before_action :set_transaction, only: %i[show update destroy]
 
   # GET /transactions
   def index
