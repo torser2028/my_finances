@@ -10,7 +10,7 @@
 #  updated_at :datetime         not null
 #
 class CategorySerializer < ActiveModel::Serializer
-  attributes :name, :is_user_category
+  attributes :id, :name, :is_user_category
 
   def is_user_category
     false
