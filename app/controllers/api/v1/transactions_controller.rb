@@ -4,8 +4,7 @@ class Api::V1::TransactionsController < ApplicationController
   # GET /transactions
   def index
     @transactions = Transaction.all
-
-    render json: @transactions
+    render json: @transactions, each_serializer: TransactionSerializer
   end
 
   # GET /transactions/1
