@@ -12,7 +12,7 @@ class SourcesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create source" do
     assert_difference("Source.count") do
-      post sources_url, params: { source: { color: @source.color, name: @source.name, user_id: @source.user_id } }, as: :json
+      post sources_url, params: {source: {color: @source.color, name: @source.name, user_id: @source.user_id}}, as: :json
     end
 
     assert_response :created
@@ -24,7 +24,7 @@ class SourcesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update source" do
-    patch source_url(@source), params: { source: { color: @source.color, name: @source.name, user_id: @source.user_id } }, as: :json
+    patch source_url(@source), params: {source: {color: @source.color, name: @source.name, user_id: @source.user_id}}, as: :json
     assert_response :success
   end
 
