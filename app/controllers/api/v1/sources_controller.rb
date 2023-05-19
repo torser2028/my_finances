@@ -5,7 +5,7 @@ class Api::V1::SourcesController < ApplicationController
   def index
     @sources = Source.all
 
-    render json: @sources
+    render json: @sources, each_serializer: SourceSerializer
   end
 
   # GET /sources/1
