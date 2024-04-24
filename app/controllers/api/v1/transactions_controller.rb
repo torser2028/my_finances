@@ -1,11 +1,10 @@
 class Api::V1::TransactionsController < ApplicationController
-  before_action :set_transaction, only: %i[ show update destroy ]
+  before_action :set_transaction, only: %i[show update destroy]
 
   # GET /transactions
   def index
     @transactions = Transaction.all
-
-    render json: @transactions
+    render json: @transactions, each_serializer: TransactionSerializer
   end
 
   # GET /transactions/1
@@ -18,7 +17,7 @@ class Api::V1::TransactionsController < ApplicationController
     @transaction = Transaction.new(transaction_params)
 
     if @transaction.save
-      render json: @transaction, status: :created, location: @transaction
+      render json: @transaction, status: :created
     else
       render json: @transaction.errors, status: :unprocessable_entity
     end
@@ -39,13 +38,14 @@ class Api::V1::TransactionsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_transaction
-      @transaction = Transaction.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def transaction_params
-      params.require(:transaction).permit(:type, :name, :date, :value, :reminder, :category_id, :source_id, :user_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_transaction
+    @transaction = Transaction.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def transaction_params
+    params.require(:transaction).permit(:transaction_type, :name, :date, :value, :reminder, :category_id, :source_id, :user_id)
+  end
 end

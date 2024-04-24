@@ -12,12 +12,16 @@
 #  updated_at             :datetime         not null
 #
 
-class User < ApplicationRecord
-  devise :database_authenticatable, :jwt_authenticatable,
-    :registerable, :recoverable, :rememberable, :validatable,
-    jwt_revocation_strategy: JwtDenylist
+FactoryBot.define do
+  factory :user do
+    email { "john@example.com" }
+    password { "password" }
+    password_confirmation { "password" }
 
-  has_many :sources
-  has_many :transactions
-  has_many :user_categories
+    trait :with_categories do
+      after(:create) do |user|
+        create_list(:user_category, 2, user: user)
+      end
+    end
+  end
 end

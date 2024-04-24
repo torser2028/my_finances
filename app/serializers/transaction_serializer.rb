@@ -14,23 +14,20 @@
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #
+class TransactionSerializer < ActiveModel::Serializer
+  include ActionView::Helpers::NumberHelper
 
-one:
-  transaction_type:
-  name: MyString
-  date: 2022-09-05
-  value: 1.5
-  reminder: 2022-09-05
-  category: one
-  source: one
-  user: one
+  attributes :id, :transaction_type, :name, :date, :value, :reminder, :category, :source, :user
 
-two:
-  transaction_type:
-  name: MyString
-  date: 2022-09-05
-  value: 1.5
-  reminder: 2022-09-05
-  category: two
-  source: two
-  user: two
+  def category
+    object.category.name
+  end
+
+  def source
+    object.source.name
+  end
+
+  def user
+    object.user.email
+  end
+end

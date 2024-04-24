@@ -1,11 +1,18 @@
 class Api::V1::CategoriesController < ApplicationController
-  before_action :set_category, only: %i[ show update destroy ]
+  before_action :set_category, only: %i[show update destroy]
 
   # GET /categories
   def index
-    @categories = Category.all
-
-    render json: @categories
+    categories = Category.all
+    user_categories = UserCategory.all
+    @categories = (categories + user_categories).map do |category|
+      if category.is_a?(UserCategory)
+        UserCategorySerializer.new(category, {include_system_category: false})
+      else
+        CategorySerializer.new(category)
+      end
+    end
+    render json: {categories: @categories}
   end
 
   # GET /categories/1
