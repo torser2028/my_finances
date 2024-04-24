@@ -59,3 +59,6 @@ group :development do
   # gem "spring"
   gem "rubocop"
 end
+
+# Google API
+gem 'google-api-client'
